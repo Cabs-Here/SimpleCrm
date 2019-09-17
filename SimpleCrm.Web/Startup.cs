@@ -44,6 +44,8 @@ namespace SimpleCrm.Web
             app.UseStaticFiles();
 
             app.UseMvc(ConfigureRoutes);
+
+            app.Run(ctx => ctx.Response.WriteAsync("Not found"));
         }
         private void ConfigureRoutes(IRouteBuilder routes) 
           {
