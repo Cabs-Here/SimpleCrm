@@ -50,7 +50,8 @@ namespace SimpleCrm.Web
         private void ConfigureRoutes(IRouteBuilder routes) 
           {
             routes.MapRoute("default",
-                "A/{controller}/B/{action}");
+                "{controller=Home}/{action=Index}/{id?}");
+            
            }
     }
 }
