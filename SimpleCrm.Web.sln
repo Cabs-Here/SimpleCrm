@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCrm.Web", "SimpleCrm.Web\SimpleCrm.Web.csproj", "{ECA21ED5-ACFD-476D-90C4-5549666E35DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCrm", "SimpleCrm\SimpleCrm.csproj", "{C9B374DA-672C-473C-B9C4-F5AAA352586B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECA21ED5-ACFD-476D-90C4-5549666E35DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA21ED5-ACFD-476D-90C4-5549666E35DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA21ED5-ACFD-476D-90C4-5549666E35DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA21ED5-ACFD-476D-90C4-5549666E35DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9B374DA-672C-473C-B9C4-F5AAA352586B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B374DA-672C-473C-B9C4-F5AAA352586B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B374DA-672C-473C-B9C4-F5AAA352586B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B374DA-672C-473C-B9C4-F5AAA352586B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {812C59B4-763C-4628-BD8B-795A0B20DA00}
+	EndGlobalSection
+EndGlobal
