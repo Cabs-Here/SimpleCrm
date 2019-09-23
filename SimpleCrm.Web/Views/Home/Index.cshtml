@@ -1,11 +1,28 @@
-﻿
-@model SimpleCrm.Web.Models.CustomerModel
+﻿<!-- /Views/Home/Index.cshtml -->
+@using SimpleCrm.Web.Controllers
+@model SimpleCrm.Web.Models.Home.HomePageViewModel
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Simple CRM</title>
-    </head>
-    <body>
-        <h1>Hello @Model.FirstName @Model.LastName from a view! I changed this!</h1>
-    </body>
-    </html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Simple CRM</title>
+</head>
+<body>
+    <h1>Customers</h1>
+    <p>@Model.Message</p>
+    <table>
+        @foreach (var customer in Model.Customers)
+        {
+        <tr>
+            <td>
+            <a href="/home/details/@customer.Id">Details</a>
+            </td>
+            <td>@Html.ActionLink("View", nameof(HomeController.Details), new { id= customer.Id})</td>
+            <td>@customer.FirstName</td>
+            <td>@customer.LastName</td>
+            <td>@customer.PhoneNumber</td>
+        </tr>
+        }
+    </table>
+    <div><a href="/home/create>Create a Customer</a></div>
+</body>
+</html>
