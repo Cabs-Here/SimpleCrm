@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCrm.Web", "SimpleCrm.Web\SimpleCrm.Web.csproj", "{ECA21ED5-ACFD-476D-90C4-5549666E35DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCrm", "SimpleCrm\SimpleCrm.csproj", "{C9B374DA-672C-473C-B9C4-F5AAA352586B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCrm", "SimpleCrm\SimpleCrm.csproj", "{C9B374DA-672C-473C-B9C4-F5AAA352586B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCrm.SqlDbServices", "SimpleCrm.SqlDbServices\SimpleCrm.SqlDbServices.csproj", "{EA88E69A-DC8F-47FE-9D26-39478AB6809D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C9B374DA-672C-473C-B9C4-F5AAA352586B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9B374DA-672C-473C-B9C4-F5AAA352586B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9B374DA-672C-473C-B9C4-F5AAA352586B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA88E69A-DC8F-47FE-9D26-39478AB6809D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA88E69A-DC8F-47FE-9D26-39478AB6809D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA88E69A-DC8F-47FE-9D26-39478AB6809D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA88E69A-DC8F-47FE-9D26-39478AB6809D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
