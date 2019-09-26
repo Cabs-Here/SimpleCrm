@@ -1,28 +1,27 @@
 ﻿<!-- /Views/Home/Index.cshtml -->
 @using SimpleCrm.Web.Controllers
-@model SimpleCrm.Web.Models.Home.HomePageViewModel
+@model HomePageViewModel
+@{
+    ViewBag.Title = "Customers Page";
+}
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Simple CRM</title>
-</head>
-<body>
-    <h1>Customers</h1>
-    <p>@Model.Message</p>
-    <table>
-        @foreach (var customer in Model.Customers)
-        {
-        <tr>
-            <td>
-            <a href="/home/details/@customer.Id">Details</a>
-            </td>
-            <td>@Html.ActionLink("View", nameof(HomeController.Details), new { id= customer.Id})</td>
-            <td>@customer.FirstName</td>
-            <td>@customer.LastName</td>
-            <td>@customer.PhoneNumber</td>
-        </tr>
-        }
-    </table>
-    <div><a href="/home/create>Create a Customer</a></div>
-</body>
-</html>
+<h1>Customers</h1>
+
+<table>
+    @foreach (var customer in Model.Customers)
+    {
+    <tr>
+        <td><a asp-controller="Home" asp-action="Details" asp-route-id="@customer.Id">Details</a></td>
+        <td>@customer.FirstName</td>
+        <td>@customer.LastName</td>
+        <td>@customer.PhoneNumber</td>
+    </tr>
+    }
+</table>
+<br />
+<a asp-action="Create" asp-controller="Home">Create a Customer</a>
+
+@section footer {
+    <p>@Model.CurrentMessage</p>
+}
+

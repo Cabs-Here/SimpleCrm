@@ -25,7 +25,7 @@ namespace SimpleCrm.Web.Controllers
             var model = new HomePageViewModel
             {
                 Customers = customers,
-                Message = _greeter.GetGreeting()
+                CurrentMessage = _greeter.GetGreeting()
             };
             return View(model);
         }
@@ -64,6 +64,16 @@ namespace SimpleCrm.Web.Controllers
             }
             
             return View();
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var customer = _customerData.Get(id);
+            if (customer == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(customer);
         }
 
     }
