@@ -59,13 +59,15 @@ namespace SimpleCrm.Web.Controllers
                     OptInNewsletter = model.OptInNewsletter,
                     Type = model.Type
                 };
-                _customerData.Save(customer);
+                _customerData.Add(customer);
+
                 return RedirectToAction(nameof(Details), new { id = customer.Id });
             }
             
             return View();
         }
 
+        [HttpGet()]
         public IActionResult Edit(int id)
         {
             var customer = _customerData.Get(id);
@@ -73,7 +75,41 @@ namespace SimpleCrm.Web.Controllers
             {
                 return RedirectToAction(nameof(Index));
             }
-            return View(customer);
+            var model = new CustomerEditViewModel
+            {
+                Id = customer.Id,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                PhoneNumber = customer.PhoneNumber,
+                Type = customer.Type,
+                OptInNewsletter = customer.OptInNewsletter
+            };
+            return View(model);
+        }
+
+        [HttpPost()]
+        [ValidateAntiForgeryToken()]
+        public IActionResult Edit(CustomerEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var customer = _customerData.Get(model.Id);
+                if (customer == null)
+                {   //You could render a different view for this error
+                    return RedirectToAction(nameof(Index));
+                }
+
+                customer.FirstName = model.FirstName;
+                customer.LastName = model.LastName;
+                customer.PhoneNumber = model.PhoneNumber;
+                customer.OptInNewsletter = model.OptInNewsletter;
+                customer.Type = model.Type;
+
+                _customerData.Update(customer);
+                return RedirectToAction(nameof(Details), new { id = customer.Id });
+            }
+
+            return View();
         }
 
     }
