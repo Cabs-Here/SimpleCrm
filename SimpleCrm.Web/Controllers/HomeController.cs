@@ -11,12 +11,11 @@ namespace SimpleCrm.Web.Controllers
     public class HomeController : Controller
     {
         private ICustomerData _customerData;
-        private readonly IGreeter _greeter;
+        
 
-        public HomeController(ICustomerData customerData, IGreeter greeter)
+        public HomeController(ICustomerData customerData)
         {
             _customerData = customerData;
-            _greeter = greeter;
         }
 
         public IActionResult Index()
@@ -25,7 +24,6 @@ namespace SimpleCrm.Web.Controllers
             var model = new HomePageViewModel
             {
                 Customers = customers,
-                CurrentMessage = _greeter.GetGreeting()
             };
             return View(model);
         }
