@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SimpleCrm.SqlDbServices;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
 
 namespace SimpleCrm.Web
 {
@@ -27,8 +28,14 @@ namespace SimpleCrm.Web
             services.AddSingleton<IGreeter, ConfigurationGreeter>();
             services.AddScoped<ICustomerData, SqlCustomerData>();
             services.AddDbContext<SimpleCrmDbContext>(options =>
-           options.UseSqlServer(configuration.GetConnectionString("SimpleCrmConnection"))
+            options.UseSqlServer(configuration.GetConnectionString("SimpleCrmConnection"))
             );
+            services.AddDbContext<CrmIdentityDbContext>(options =>
+            options.UseSqlServer(configuration.GetConnectionString("SimpleCrmConnection"))
+            );
+            services.AddIdentity<CrmUser, IdentityRole>()
+                .AddEntityFrameworkStores<CrmIdentityDbContext>();
+
         }
 
         
@@ -53,6 +60,8 @@ namespace SimpleCrm.Web
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(ConfigureRoutes);
 

@@ -7,7 +7,7 @@
     <h1>Edit Customer</h1>
 
     <div>
-        @*@Html.ValidationSummary() <- commented out, but it would go here *@
+        
         <form method="post" asp-antiforgery="true">
             <div>
                 <label asp-for="FirstName"></label>
@@ -37,6 +37,6 @@
             <div>
                 <input type="submit" value="Save" />
             </div>
-        </form><!-- closing form tag is rendered at the closing curly brace -->
+        </form>
     </div>
 </div>

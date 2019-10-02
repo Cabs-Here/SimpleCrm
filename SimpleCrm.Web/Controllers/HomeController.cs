@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SimpleCrm.Web.Models;
 using SimpleCrm.Web.Models.Home;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCrm.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private ICustomerData _customerData;
@@ -18,6 +20,7 @@ namespace SimpleCrm.Web.Controllers
             _customerData = customerData;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var customers = _customerData.GetAll();
@@ -93,7 +96,7 @@ namespace SimpleCrm.Web.Controllers
             {
                 var customer = _customerData.Get(model.Id);
                 if (customer == null)
-                {   //You could render a different view for this error
+                {   
                     return RedirectToAction(nameof(Index));
                 }
 
