@@ -4,6 +4,8 @@
     ViewBag.Title = Model.LastName;
 }
 
-<h1>@Model.LastName</h1>
+<h1>@Model.FirstName @Model.LastName</h1>
+<h3>Phone: @Model.PhoneNumber</h3>
+<h4>Account Type: @Model.Type</h4>
 
 <div>@Html.ActionLink("Go Back", nameof(HomeController.Index))</div>
